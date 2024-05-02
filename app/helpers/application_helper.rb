@@ -124,10 +124,6 @@ module ApplicationHelper
     raw text
   end
 
-  def social_share_button_tag(title)
-    super(title, allow_sites: Setting.share_allow_sites)
-  end
-
   # Render div.form-group with a block, it including validation error below input
   #
   # form_group(f, :email) do

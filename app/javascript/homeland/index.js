@@ -14,8 +14,8 @@ Turbolinks.setProgressBarDelay(200);
 Turbolinks.controller.cache.size = 30;
 TubrolinksPrefetch.start();
 
-import Rails from "@rails/ujs"
-window.Rails = Rails
+import Rails from "@rails/ujs";
+window.Rails = Rails;
 Rails.start();
 
 require("pagination");
@@ -31,7 +31,6 @@ require("jquery.atwho.min");
 require("google_analytics");
 require("jquery.infinitescroll.min");
 require("jquery.mobile-events");
-require("vendor/social-share-button");
 
 import { createConsumer } from "@rails/actioncable";
 

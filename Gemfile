@@ -10,7 +10,6 @@ gem "rails_autolink"
 gem "sass-rails"
 gem "shakapacker", "~> 7.2.1"
 gem "turbolinks"
-gem "uglifier"
 
 gem "view_component", "~> 2.83"
 
@@ -28,7 +27,7 @@ gem "omniauth-twitter"
 gem "omniauth-wechat-oauth2"
 
 gem "dotenv-rails"
-gem "jieba-rb"
+gem "jieba_rb"
 
 gem "http_accept_language"
 gem "rack-attack"
@@ -38,9 +37,9 @@ gem "twemoji"
 # Uploader
 gem "carrierwave", "~> 2.2"
 # Aliyun / Upyun / Qiniu
-gem "carrierwave-aliyun"
+# gem "carrierwave-aliyun"
 gem "carrierwave-qiniu"
-gem "carrierwave-upyun"
+# gem "carrierwave-upyun"
 gem "qiniu"
 
 gem "mini_magick", require: false
@@ -79,8 +78,6 @@ gem "rouge"
 
 gem "sidekiq", "< 8"
 gem "sidekiq-cron"
-
-gem "social-share-button"
 
 # Mailer Service
 gem "postmark"
