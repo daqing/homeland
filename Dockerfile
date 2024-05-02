@@ -1,8 +1,8 @@
 # NAME:     homeland/homeland
 FROM homeland/base:3.3-alpine
 
-ENV RAILS_ENV "production"
-ENV RUBY_YJIT_ENABLE "true"
+ENV RAILS_ENV="production"
+ENV RUBY_YJIT_ENABLE="true"
 
 WORKDIR /home/app/homeland
 VOLUME /home/app/homeland/plugins
@@ -27,4 +27,3 @@ ADD ./config/nginx/ /etc/nginx
 RUN bundle exec rails assets:precompile RAILS_PRECOMPILE=1 RAILS_ENV=production SECRET_KEY_BASE=fake
 RUN rm -Rf /home/app/homeland/app/javascript && \
   rm -Rf /home/app/homeland/test
-
