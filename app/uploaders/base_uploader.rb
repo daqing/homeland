@@ -27,11 +27,12 @@ class BaseUploader < CarrierWave::Uploader::Base
   end
 
   def content_type_allowlist
-    /image\//
+    %r{image/}
   end
 
   def allow_thumb?(url)
     return false if url.nil?
+
     THUMB_IMAGE_EXTS.include?(File.extname(url))
   end
 
@@ -53,7 +54,7 @@ class BaseUploader < CarrierWave::Uploader::Base
     when "qiniu"
       super(style: qiniu_thumb_key(version_name))
     else
-      [@url, version_name].join("!")
+      @url
     end
   end
 
