@@ -26,7 +26,7 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-twitter"
 gem "omniauth-wechat-oauth2"
 
-gem "dotenv-rails"
+
 gem "jieba_rb"
 
 gem "http_accept_language"
@@ -37,9 +37,9 @@ gem "twemoji"
 # Uploader
 gem "carrierwave", "~> 2.2"
 # Aliyun / Upyun / Qiniu
-# gem "carrierwave-aliyun"
+gem "carrierwave-aliyun"
 gem "carrierwave-qiniu"
-# gem "carrierwave-upyun"
+gem "carrierwave-upyun"
 gem "qiniu"
 
 gem "mini_magick", require: false
@@ -95,6 +95,7 @@ gem "puma_worker_killer"
 group :development do
   gem "byebug"
   gem "derailed_benchmarks"
+  gem "dotenv-rails"
   gem "letter_opener"
   gem "spring"
 end
