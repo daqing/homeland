@@ -6,6 +6,7 @@ db/*.sqlite3
 tmp/
 log/*.log
 log/*.log*
+!/log/.keep
 *.log
 tmp/**/*
 .sass-cache/
@@ -40,6 +41,7 @@ spec/examples.txt
 .byebug_history
 .ruby-version
 /storage/*
+!/storage/.keep
 /plugins/*
 !/plugins/test/
 app.local.env
