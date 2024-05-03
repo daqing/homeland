@@ -83,15 +83,16 @@ class Setting < RailsSettings::Base
   ]
 
   scope :basic do
-    field :app_name, default: (ENV["app_name"] || "Homeland"), validates: {presence: true}
+    field :app_name, default: ENV["app_name"] || "Homeland", validates: { presence: true }
+    field :slogan, default: ENV["slogan"] || "Open-source forum software", validates: { presence: true }
     field :timezone, default: "UTC"
     # Module [topic,team,github,editor.code]
-    field :modules, default: (ENV["modules"] || "all"), type: :array
+    field :modules, default: ENV["modules"] || "all", type: :array
     # Plugin sort
     field :sorted_plugins, default: [], type: :array, separator: /[\s,]+/
     # User profile module default: all [company,twitter,website,tagline,location,alipay,paypal,qq,weibo,wechat,douban,dingding,aliwangwang,facebook,instagram,dribbble,battle_tag,psn_id,steam_id]
-    field :profile_fields, default: (ENV["profile_fields"] || "all"), type: :array
-    field :admin_emails, type: :array, default: (ENV["admin_emails"] || "admin@admin.com"), separator: /[\s,]+/
+    field :profile_fields, default: ENV["profile_fields"] || "all", type: :array
+    field :admin_emails, type: :array, default: ENV["admin_emails"] || "admin@admin.com", separator: /[\s,]+/
     field :twitter_id
     field :share_allow_sites, default: %w[twitter weibo facebook wechat], type: :array, separator: /\s+/
     field :editor_languages, default: %w[rb go js py java rs php css html yml json xml], type: :array, separator: /[\s,]+/
@@ -116,7 +117,7 @@ class Setting < RailsSettings::Base
 
   scope :appearance do
     field :navbar_brand_html, default: -> { %(<a href="/" class="navbar-brand"><b>#{app_name}</b></a>) }
-    field :default_locale, default: "en", validates: {presence: true, inclusion: {in: %w[en zh-CN]}}
+    field :default_locale, default: "en", validates: { presence: true, inclusion: { in: %w[en zh-CN] } }
     field :auto_locale, default: "false", type: :boolean
     field :custom_head_html, default: ""
     field :navbar_html, default: ""
@@ -137,21 +138,21 @@ class Setting < RailsSettings::Base
 
   scope :uploader do
     # can be  upyun/aliyun
-    field :upload_provider, default: (ENV["upload_provider"] || "file"), readonly: true
+    field :upload_provider, default: ENV["upload_provider"] || "file", readonly: true
     # access_id or upyun username
     field :upload_access_id, default: ENV["upload_access_id"], readonly: true
     # access_secret or upyun password
     field :upload_access_secret, default: ENV["upload_access_secret"], readonly: true
     field :upload_bucket, default: ENV["upload_bucket"], readonly: true
     field :upload_url, default: ENV["upload_url"], readonly: true
-    field :upload_aliyun_internal, type: :boolean, default: (ENV["upload_aliyun_internal"] || "false"), readonly: true
-    field :upload_aliyun_region, default: (ENV["upload_aliyun_region"] || ENV["upload_aliyun_area"]), readonly: true
+    field :upload_aliyun_internal, type: :boolean, default: ENV["upload_aliyun_internal"] || "false", readonly: true
+    field :upload_aliyun_region, default: ENV["upload_aliyun_region"] || ENV["upload_aliyun_area"], readonly: true
     field :imageproxy_url
   end
 
   scope :mailer do
-    field :mailer_provider, default: (ENV["mailer_provider"] || "smtp")
-    field :mailer_sender, default: (ENV["mailer_sender"] || "no-reply@localhost")
+    field :mailer_provider, default: ENV["mailer_provider"] || "smtp"
+    field :mailer_sender, default: ENV["mailer_sender"] || "no-reply@localhost"
     field :mailer_options, type: :hash, default: {
       api_key: ENV["mailer_options_api_key"],
       address: ENV["mailer_options_address"],
@@ -159,15 +160,15 @@ class Setting < RailsSettings::Base
       domain: ENV["mailer_options_domain"],
       user_name: ENV["mailer_options_user_name"],
       password: ENV["mailer_options_password"],
-      authentication: (ENV["mailer_options_authentication"] || "login"),
+      authentication: ENV["mailer_options_authentication"] || "login",
       enable_starttls_auto: ENV["mailer_options_enable_starttls_auto"]
     }
   end
 
   scope :auth do
     field :sso, type: :hash, readonly: true, default: {
-      enable: (ENV["sso_enable"] || false),
-      enable_provider: (ENV["sso_enable_provider"] || false),
+      enable: ENV["sso_enable"] || false,
+      enable_provider: ENV["sso_enable_provider"] || false,
       url: ENV["sso_url"],
       secret: ENV["sso_secret"]
     }
@@ -194,7 +195,7 @@ class Setting < RailsSettings::Base
     field :sign_up_daily_limit, type: :integer, default: 0
 
     field :reject_newbie_reply_in_the_evening, default: "false", type: :boolean
-    field :allow_change_login, type: :boolean, default: (ENV["allow_change_login"] || false)
+    field :allow_change_login, type: :boolean, default: ENV["allow_change_login"] || false
     field :topic_create_rate_limit, default: "false", type: :boolean
     field :node_ids_hide_in_topics_index, type: :array, default: []
     field :blacklist_ips, default: [], type: :array
@@ -210,7 +211,7 @@ class Setting < RailsSettings::Base
 
   field :require_restart, default: false, type: :boolean
   field :domain, readonly: true
-  field :asset_host, default: (ENV["asset_host"] || nil), readonly: true
+  field :asset_host, default: ENV["asset_host"] || nil, readonly: true
   field :apns_pem, default: ""
 
   class << self

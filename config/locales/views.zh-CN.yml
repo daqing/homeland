@@ -146,6 +146,7 @@ zh-CN:
       captcha: 验证码
       other: 其他
     app_name: 网站名称
+    slogan: 网站口号
     manifest: PWA Web app manifests 配置信息（JSON 格式）
     newbie_notices: 新手提示信息（支持 HTML）
     admin_emails: 管理员 Email，在此名单的将有管理员权限（一行一个）
