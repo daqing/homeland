@@ -150,4 +150,12 @@ module ApplicationHelper
   def user_theme
     current_user&.theme || "auto"
   end
+
+  def link_to_active(title, path, current, name, css_class)
+    if path == current || name.include?(title)
+      link_to title, path, class: "active #{css_class}"
+    else
+      link_to title, path, class: css_class
+    end
+  end
 end
