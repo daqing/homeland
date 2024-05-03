@@ -1,0 +1,31 @@
+<% content_for :sitemap do %>
+  <span class="current"><%= t("admin.menu.nav_links")%></span>
+<% end %>
+<div class="toolbar">
+  <%= link_to t("admin.nav_links.new"), new_admin_nav_link_path, class: "btn btn-secondary" %>
+</div>
+<table class="table table-bordered table-striped table-condensed">
+  <tr class="head">
+    <th class="first">#</th>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Section</th>
+    <th>Position</th>
+    <th></th>
+  </tr>
+  <% @nav_links.each do |nav_link| %>
+    <tr>
+      <td class="first"><%= nav_link.id %></td>
+      <td><%= nav_link.name %></td>
+      <td><%= nav_link.url %></td>
+      <td><%= nav_link.section %></td>
+      <td><%= nav_link.position %></td>
+      <td class="actions">
+        <div class="btn-group">
+          <%= link_to icon_tag("edit"), edit_admin_nav_link_path(nav_link), class: "btn" %>
+          <%= link_to icon_tag("trash"), admin_nav_link_path(nav_link), 'data-confirm' => 'Are you sure?' , method: :delete, class: "btn" %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
