@@ -17,26 +17,9 @@
         </div>
       <% else %>
         <ul class="filter nav nav-pills">
-          <li class="<%= ' active' if action_name == 'index' %>">
-            <a href="<%= main_app.topics_path %>" data-turbolinks-action="replace"><%= t("topics.topic_list.latest") %></a>
-          </li>
-          <li class="<%= ' active' if action_name == 'last' %>">
-            <%= link_to(t("topics.topic_list.recent"), main_app.last_topics_path, data: { 'turbolinks-action': 'replace' }) %>
-          </li>
-          <li class="<%= ' active' if action_name == 'excellent' %>">
-            <a href="<%= main_app.excellent_topics_path %>" data-turbolinks-action="replace"><i class="fa fa-award"></i> <%= t("topics.topic_list.excellent") %></a>
-          </li>
-          <li class="<%= ' active' if action_name == 'popular' %>">
-            <a href="<%= main_app.popular_topics_path %>" data-turbolinks-action="replace"><%= t("topics.topic_list.popular") %></a>
-          </li>
-          <% if can?(:ban, Topic) %>
-            <li class="<%= ' active' if action_name == 'banned' %>">
-              <%= link_to(t("topics.topic_list.banned"), main_app.banned_topics_path, data: { 'turbolinks-action': 'replace' }) %>
-            </li>
-          <% end %>
-          <% if !mobile? %>
-            <li class="<%= ' active' if action_name == 'last_reply' %>">
-              <%= link_to(t("topics.topic_list.last_reply"), main_app.last_reply_topics_path, data: { 'turbolinks-action': 'replace' }) %>
+          <% Node.sorted.each do |node| %>
+            <li>
+              <%= render_node_name(node) %>
             </li>
           <% end %>
         </ul>

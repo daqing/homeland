@@ -6,5 +6,14 @@
       li << link_to(plugin.display_name, plugin.root_path, class: "nav-link")
     end
   end %>
+  <% NavLink.header.each do |nav_link| %>
+    <li class="nav-item">
+      <% if nav_link.url.start_with?('http') %>
+        <%= link_to nav_link.name, nav_link.url, target: "_blank" %>
+      <% else %>
+        <%= link_to_active nav_link.name, nav_link.url, request.path, yield(:title), "nav-link" %>
+      <% end %>
+    </li>
+  <% end %>
   <%= raw Setting.navbar_html %>
 </ul>

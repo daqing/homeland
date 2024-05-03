@@ -5,6 +5,7 @@ en:
       site_configs: Settings
       users: Users
       nodes: Nodes
+      nav_links: NavLinks
       wiki: Wiki
       topics: Topics
       replies: Replies
@@ -41,6 +42,9 @@ en:
     nodes:
       new: New Node
       edit: Edit Node
+    nav_links:
+      new: New NavLink
+      edit: Edit NavLink
     topic_list: Topic List
     check_photo: View Photo
     reboot_successfully: >-
@@ -50,6 +54,7 @@ en:
   views:
     admin:
       node_was_successfully_created: Node was successfully created.
+      nav_link_was_successfully_created: NavLink was successfully created.
       location_was_update_successfully: Location was update successfully.
       plugin_was_install_success: Plugin was install successfully, if page not refresh, please refresh it.
       plugin_was_install_error: Plugin was install error, please check the zip to determine that is correct.
@@ -63,6 +68,7 @@ en:
         Recent 10 replies has been deleted successfully, now %{name} still %{count}
         replies
       node_update_successfully: Node was successfully updated.
+      nav_link_update_successfully: NavLink was successfully updated.
       recent_10_topics_has_been_deleted_successfully: >-
         Recent 10 topics has been deleted successfully, now %{name} still have
         %{count} topics.

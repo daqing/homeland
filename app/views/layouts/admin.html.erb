@@ -19,6 +19,7 @@
             li << link_to(t("admin.menu.root_path"), main_app.admin_root_path, class: "nav-link")
             li << link_to(t("admin.menu.users"), main_app.admin_users_path, class: "nav-link")
             li << link_to(t("admin.menu.nodes"), main_app.admin_nodes_path, class: "nav-link")
+            li << link_to(t("admin.menu.nav_links"), main_app.admin_nav_links_path, class: "nav-link")
             li << link_to(t("admin.menu.topics"), main_app.admin_topics_path, class: "nav-link")
             li << link_to(t("admin.menu.replies"), main_app.admin_replies_path, class: "nav-link")
             li << link_to(t("admin.menu.comments"), main_app.admin_comments_path, class: "nav-link")
@@ -41,7 +42,6 @@
           System settings have been updated, need to restart the application to take effect <%= link_to icon_tag("power-off", label: "Reboot now"), main_app.reboot_admin_dashboards_path, data: { method: :post, confirm: "Are you sure to reboot Homeland?", disable_with: "Rebooting..." }, class: "text-danger float-right" %>
         </div>
       <% end %>
-          
       <div id="main" class="card">
         <div class="card-body">
           <%= render AlertComponent.new %>

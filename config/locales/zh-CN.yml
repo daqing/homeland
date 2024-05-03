@@ -110,6 +110,11 @@
         name: 名称
         sort: 排序
         summary: 简介
+      nav_link:
+        name: 名称
+        url: URL
+        section: 位置
+        position: 排序
     errors:
       models:
         user:
