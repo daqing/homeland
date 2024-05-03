@@ -73,7 +73,7 @@ module ApplicationHelper
   end
 
   def random_tips
-    Setting.tips.sample
+    Setting.tips.join("<br/>").html_safe
   end
 
   def icon_tag(name, opts = {})
