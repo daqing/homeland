@@ -1,0 +1,29 @@
+<% content_for :sitemap do %>
+  <span class="current"><%= t("admin.menu.tags")%></span>
+<% end %>
+<div class="toolbar">
+  <%= link_to t("admin.tags.new"), new_admin_tag_path, class: "btn btn-secondary" %>
+</div>
+<table class="table table-bordered table-striped table-condensed">
+  <tr class="head">
+    <th class="first">#</th>
+    <th>Name</th>
+    <th>Key</th>
+    <th>Position</th>
+    <th></th>
+  </tr>
+  <% @tags.each do |tag| %>
+    <tr>
+      <td class="first"><%= tag.id %></td>
+      <td><%= tag.name %></td>
+      <td><%= tag.key %></td>
+      <td><%= tag.position %></td>
+      <td class="actions">
+        <div class="btn-group">
+          <%= link_to icon_tag("edit"), edit_admin_tag_path(tag), class: "btn" %>
+          <%= link_to icon_tag("trash"), admin_tag_path(tag), 'data-confirm' => 'Are you sure?' , method: :delete, class: "btn" %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>

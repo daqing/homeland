@@ -45,6 +45,9 @@ zh-CN:
     nav_links:
       new: 新建导航链接
       edit: 修改导航链接
+    tags:
+      new: 新建 Tag
+      edit: 修改 Tag
     topic_list: 话题列表
     check_photo: 瀏覽圖片
     reboot_successfully: 已经发起了重启命令，Homeland 在后台异步重启，你可以刷新页面，通过服务启动时间变化来确定重启是否完成。
@@ -54,6 +57,7 @@ zh-CN:
       location_was_update_successfully: 城市创建成功。
       node_was_successfully_created: 节点创建成功。
       nav_link_was_successfully_created: 导航链接创建成功。
+      tag_was_successfully_created: Tag 创建成功。
       plugin_was_install_success: 插件安装成功，如果页面没有刷新，请手动刷新。
       plugin_was_install_error: 插件安装失败，请检查 zip 包是否为正确的 Homeland 插件格式。
       plugn_was_uninstall_successfully: 插件卸载成功。
@@ -65,6 +69,7 @@ zh-CN:
       recent_10_replies_has_been_deleted_successfully: 成功删除最近 10 条回复，目前 %{name} 还有 %{count} 条。
       node_update_successfully: 节点更新成功。
       nav_link_update_successfully: 导航链接更新成功。
+      tag_update_successfully: Tag 更新成功。
       recent_10_topics_has_been_deleted_successfully: 成功删除最近 10 条话题，目前 %{name} 还有 %{count} 条。
       recent_10_photos_has_been_deleted_successfully: 成功删除最近 10 条图片，目前 %{name} 还有 %{count} 条。
       recent_10_notes_has_been_deleted_successfully: 成功删除最近 10 条笔记，目前 %{name} 还有 %{count} 条。

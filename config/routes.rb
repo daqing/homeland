@@ -117,6 +117,7 @@ Rails.application.routes.draw do
     end
     resources :nodes
     resources :nav_links
+    resources :tags
     resources :users, constraints: {id: /[#{User::LOGIN_FORMAT}]*/o} do
       member do
         delete :clean
