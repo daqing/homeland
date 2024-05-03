@@ -10,7 +10,6 @@ gem "rails_autolink"
 gem "sass-rails"
 gem "shakapacker", "~> 7.2.1"
 gem "turbolinks"
-gem "uglifier"
 
 gem "view_component", "~> 2.83"
 
@@ -27,8 +26,8 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-twitter"
 gem "omniauth-wechat-oauth2"
 
-gem "dotenv-rails"
-gem "jieba-rb"
+
+gem "jieba_rb"
 
 gem "http_accept_language"
 gem "rack-attack"
@@ -80,8 +79,6 @@ gem "rouge"
 gem "sidekiq", "< 8"
 gem "sidekiq-cron"
 
-gem "social-share-button"
-
 # Mailer Service
 gem "postmark"
 gem "postmark-rails"
@@ -98,6 +95,7 @@ gem "puma_worker_killer"
 group :development do
   gem "byebug"
   gem "derailed_benchmarks"
+  gem "dotenv-rails"
   gem "letter_opener"
   gem "spring"
 end

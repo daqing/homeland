@@ -4,7 +4,7 @@ module Homeland
   class Search
     attr_accessor :term, :terms
 
-    INVALID_CHARS = /[:()&!'"]/
+    INVALID_CHARS = /[:()&!'"]/.freeze
     JIEBA = JiebaRb::Segment.new
 
     def initialize(term)

@@ -6,6 +6,7 @@ db/*.sqlite3
 tmp/
 log/*.log
 log/*.log*
+!/log/.keep
 *.log
 tmp/**/*
 .sass-cache/
@@ -24,9 +25,11 @@ tmp/**/*
 /shared/
 vendor/cache/
 config/nginx/nginx.conf
+.env
 .env.production
 .env.development
 .env.test
+.env.local
 .redcar
 .DS_Store
 *.swp
@@ -40,6 +43,7 @@ spec/examples.txt
 .byebug_history
 .ruby-version
 /storage/*
+!/storage/.keep
 /plugins/*
 !/plugins/test/
 app.local.env

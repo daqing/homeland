@@ -6,7 +6,6 @@
     <div class="infos media-body">
       <div class="title media-heading">
         <%= link_to(main_app.topic_path(topic), title: topic.title) do %>
-          <span class="node"><%= topic.node&.name %></span>
           <%= topic.title %>
         <% end %>
         <%= icon_tag("pin") if type == "suggest" %>
@@ -15,6 +14,10 @@
       </div>
       <div class="info">
         <%= user_name_tag(topic.user) %>
+        <span>•</span>
+        <span class="node">
+          <%= topic.node&.name %>
+        </span>
         <span class="hidden-mobile">
           •
           <% if topic.last_reply_user_login.blank? %>

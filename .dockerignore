@@ -1,5 +1,6 @@
 data/
 log/
+!/log/.keep
 tmp/
 public/uploads/
 spec/
@@ -7,6 +8,8 @@ plugins/*
 test/
 doc/
 coverage/
+/storage
+!/storage/.keep
 
 Dockerfile
 .env.*

@@ -4,6 +4,7 @@ require "digest/md5"
 module TopicsHelper
   def topic_favorite_tag(topic, opts = {})
     return "" if current_user.blank?
+
     opts[:class] ||= ""
     class_name = ""
     link_title = t("common.favorite")
@@ -23,6 +24,7 @@ module TopicsHelper
     return "" if current_user.blank?
     return "" if topic.blank?
     return "" if owner?(topic)
+
     opts[:class] ||= ""
     class_name = "follow"
     class_name += " active" if current_user.follow_topic?(topic)
@@ -45,16 +47,19 @@ module TopicsHelper
 
   def topic_excellent_tag(topic)
     return "" unless topic.excellent?
+
     icon_tag("award")
   end
 
   def topic_close_tag(topic)
     return "" unless topic.closed?
+
     content_tag(:i, "", title: t("topics.closed_tooltip"), class: "fa fa-check-circle", "data-bs-toggle": "tooltip")
   end
 
   def render_node_name(node)
     return "" if node.blank?
+
     link_to(node.name, main_app.node_topics_path(node.id), class: "node")
   end
 end

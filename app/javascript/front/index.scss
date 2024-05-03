@@ -3,7 +3,6 @@
 @import "~vendor/atwho";
 @import "~vendor/jquery.fluidbox";
 @import "~vendor/tooltipster.bundle";
-@import "~vendor/social-share-button/index";
 
 @import "notifications";
 @import "home";
@@ -469,7 +468,7 @@ hr {
     }
     .node {
       color: var(--primary);
-      font-weight: bold;
+      // font-weight: bold;
     }
     .user-name {
       color: var(--primary);
@@ -786,28 +785,6 @@ hr {
   .sidebar .card .card-body .feed-button {
     float: none !important;
     margin-top: 1.25rem;
-  }
-}
-/* Social Share Button */
-.social-share-button {
-  height: 16px;
-  a {
-    i.fa {
-      font-size: 24px;
-      margin: 0 4px;
-    }
-    &:link,
-    &:visited {
-      color: #777;
-    }
-    &:hover {
-      color: $blue;
-    }
-  }
-}
-.popover-content {
-  .social-share-button {
-    display: block;
   }
 }
 

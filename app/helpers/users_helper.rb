@@ -23,8 +23,9 @@ module UsersHelper
     options[:class] ||= "#{user_type}-name"
     options["data-name"] = name
 
-    link_to(label, "/#{login}", options)
+    link_to(name, "/#{login}", options)
   end
+
   alias_method :team_name_tag, :user_name_tag
 
   def user_avatar_width_for_size(size)
