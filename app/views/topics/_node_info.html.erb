@@ -17,7 +17,7 @@
         </div>
       <% else %>
         <ul class="filter nav nav-pills">
-          <% Node.sorted.find_each do |node| %>
+          <% Node.sorted.each do |node| %>
             <li>
               <%= render_node_name(node) %>
             </li>
