@@ -1,3 +1,26 @@
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".select-tag").on("click", function () {
+        const tag_id = $(this).data("tag-id").toString(); // tag_id is number
+        const input = $("#topic_tags");
+        var ids = input.val().split(","); // ids is an array of string numbers
+
+        if (ids.includes(tag_id)) {
+          ids = ids.filter(id => id !== tag_id);
+          $(this).removeClass("text-orange-500");
+        } else {
+          ids.push(tag_id);
+          $(this).addClass("text-orange-500");
+        }
+
+        input.val(ids.join(","));
+
+        return false;
+      });
+    })
+  </script>
+<% end %>
 <%= form_for @topic, remote: true, class: "form", html: { tb: 'edit-topic' } do |f| %>
   <%= render "shared/error_messages", target: @topic %>
   <%= f.hidden_field :node_id %>
@@ -12,6 +35,15 @@
   <%= render "/shared/editor_toolbar" %>
   <div class="form-group">
     <%= f.text_area :body, class: "topic-editor form-control", rows: 20 %>
+  </div>
+  <div class="form-group">
+    <%= hidden_field_tag :topic_tags, @tag_ids.join(",") %>
+    <div class="text-zinc-500">标签</div>
+    <div class="flex gap-4 mt-2">
+      <% Tag.sorted.each do |tag| %>
+        <div data-tag-id="<%= tag.id %>" class="cursor-pointer select-tag <%= 'text-orange-500' if @tag_ids.include?(tag.id) %>">#<%= tag.name %></div>
+      <% end %>
+    </div>
   </div>
   <% if Setting.has_module?(:team) %>
     <% if current_user.team_options.any? %>

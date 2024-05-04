@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_03_090700) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_03_104940) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -244,6 +244,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_090700) do
     t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
   end
 
+  create_table "tag_topics", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tag_topics_on_tag_id"
+    t.index ["topic_id"], name: "index_tag_topics_on_topic_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "key"
+    t.integer "position", default: 0
+    t.text "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "node_id"
+  end
+
   create_table "team_users", id: :serial, force: :cascade do |t|
     t.integer "team_id", null: false
     t.integer "user_id", null: false
@@ -349,4 +368,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_090700) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "tag_topics", "tags"
+  add_foreign_key "tag_topics", "topics"
 end
