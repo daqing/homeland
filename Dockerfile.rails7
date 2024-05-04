@@ -45,6 +45,9 @@ RUN bundle install && \
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
+# Build tailwind
+RUN yarn tailwindcss -i ./app/javascript/homeland/application.tailwind.css -o ./public/tailwind.css --minify
+
 # Copy application code
 COPY . .
 

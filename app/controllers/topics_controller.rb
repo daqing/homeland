@@ -73,10 +73,14 @@ class TopicsController < ApplicationController
       @node = Node.find_by_id(params[:node_id])
       render_404 if @node.blank?
     end
+
+    @tag_ids = []
   end
 
   def edit
     @node = @topic.node
+
+    @tag_ids = @topic.tags.map(&:id)
   end
 
   def create
@@ -84,7 +88,18 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     @topic.node_id = params[:node] || topic_params[:node_id]
     @topic.team_id = ability_team_id
-    @topic.save
+    @topic.save!
+
+    if params[:topic_tags].present?
+      tag_ids = params[:topic_tags].split(",").map(&:to_i)
+
+      tag_ids.each do |tag_id|
+        tag = Tag.find_by_id(tag_id)
+        next if tag.blank?
+
+        @topic.tags << tag
+      end
+    end
   end
 
   def preview
@@ -107,7 +122,19 @@ class TopicsController < ApplicationController
     @topic.team_id = ability_team_id
     @topic.title = topic_params[:title]
     @topic.body = topic_params[:body]
-    @topic.save
+    @topic.save!
+
+    @topic.tags.delete_all
+    if params[:topic_tags].present?
+      tag_ids = params[:topic_tags].split(",").map(&:to_i)
+
+      tag_ids.each do |tag_id|
+        tag = Tag.find_by_id(tag_id)
+        next if tag.blank?
+
+        @topic.tags << tag
+      end
+    end
   end
 
   def destroy
