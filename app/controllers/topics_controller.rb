@@ -22,6 +22,15 @@ class TopicsController < ApplicationController
     end
   end
 
+  def tag
+    @tag = Tag.find_by_key(params[:key])
+    render_404 if @tag.blank?
+
+    @topics = @tag.topics.recent.page(params[:page])
+    @page_title = ["#", @tag.name].join
+    @read_topic_ids = current_user&.filter_readed_topics(@topics) || []
+  end
+
   def feed
     @topics = Topic.recent.without_ban.without_hide_nodes.includes(:node, :user, :last_reply_user).limit(20)
     render layout: false if stale?(@topics)

@@ -40,7 +40,7 @@
       </div>
       <div class="card-body tags text-sm flex gap-4">
         <% @topic.tags.each do |tag| %>
-          <%= link_to "#" + tag.name, "/tag/#{tag.key}", class: 'tag text-orange-500' %>
+          <%= link_to "#" + tag.name, "/tag/#{tag.key}", class: 'tag tag-link' %>
         <% end %>
       </div>
       <div class="clearfix card-footer">
