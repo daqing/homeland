@@ -26,7 +26,7 @@ class Setting < RailsSettings::Base
     end
   end
 
-  SYSTEM_KEYS = %w[require_restart domain https asset_host]
+  SYSTEM_KEYS = %w[require_restart domain https]
 
   # keys that allow update without restart
   HOT_UPDATE_KEYS = %w[
@@ -210,7 +210,6 @@ class Setting < RailsSettings::Base
 
   field :require_restart, default: false, type: :boolean
   field :domain, readonly: true
-  field :asset_host, default: ENV["asset_host"] || nil, readonly: true
   field :apns_pem, default: ""
 
   class << self
@@ -278,7 +277,7 @@ class Setting < RailsSettings::Base
 
     # Host that ImageProxy will ignore
     def imageproxy_ignore_hosts
-      [upload_url, asset_host, base_url].map do |url|
+      [upload_url, base_url].map do |url|
         URI(url).host
       rescue
         return nil
