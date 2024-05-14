@@ -4,31 +4,27 @@
     @reference_by_topics = @topic.reference_by_topics
   %>
   <% if @reference_topics.length > 0 || @reference_by_topics.length > 0 %>
-    <div class="mb-4 topic-references card">
-      <ul class="nav" role="tablist">
-        <li class="nav-item"><a href="#" data-bs-toggle="tab" data-bs-target="#references" class="nav-link active"><%= t("topics.references") %></a></li>
-        <li class="nav-item"><a href="#" data-bs-toggle="tab" data-bs-target="#reference_by" class="nav-link"><%= t("topics.reference_by") %></a></li>
-      </ul>
-      <div class="py-2 divide-x divide-gray-400 tab-content">
-        <div class="tab-pane active" id="references">
-          <% if @reference_topics.length > 0 %>
+    <div class="card mb-2 p-4">
+      <% if @reference_topics.length > 0 %>
+        <div class="mb-4">
+          <h6><%= t("topics.references") %></h6>
+          <div class="references-inner">
             <% @reference_topics.each do |topic| %>
-              <%= link_to topic.title, topic, class: "ref-topic-item" %>
+              <div class="block bg-transparent hover:bg-gray-100 underline-offset-2 text-gray-700 dark:hover:bg-gray-800 dark:text-gray-200"><%= link_to topic.title, topic, class: "ref-topic-item" %></div>
             <% end %>
-          <% else %>
-            <div class="no-result"><%= t("topics.no_reference") %></div>
-          <% end %>
+          </div>
         </div>
-        <div class="tab-pane" id="reference_by">
-          <% if @reference_by_topics.length > 0 %>
+      <% end %>
+      <% if @reference_by_topics.length > 0 %>
+        <div class="">
+          <h6 class=""><%= t("topics.reference_by") %></h6>
+          <div class="references-inner">
             <% @reference_by_topics.each do |topic| %>
-              <%= link_to topic.title, topic, class: "ref-topic-item" %>
+              <div class="block bg-transparent hover:bg-gray-100 underline-offset-2 text-gray-700 dark:hover:bg-gray-800 dark:text-gray-200"><%= link_to topic.title, topic, class: "ref-topic-item" %></div>
             <% end %>
-          <% else %>
-            <div class="no-result"><%= t("topics.no_reference") %></div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
-<% end %> 
+<% end %>
