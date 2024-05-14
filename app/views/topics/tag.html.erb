@@ -5,9 +5,8 @@
     <%= Setting.app_name %> - <%= Setting.slogan %>
   <% end %>
 <% end %>
-<!-- @suggest_topics maybe nil or ActiveRecord::Relation, but we need an array -->
-<% @suggest_topics = @suggest_topics.to_a %>
 <%= render "topics/node_info", node: @node %>
+<div class="mb-2 text-lg tag-name">#<%= @tag.name %></div>
 <div class="flex flex-col gap-4 lg:flex-row">
   <div class="grow lg:w-3/4">
     <div class="topics topics-<%= action_name %> card">

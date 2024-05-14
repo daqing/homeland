@@ -67,5 +67,6 @@
     "autoprefixer": "~10.4.17",
     "mdn-data": "~2.0.30",
     "merge-descriptors": "~1.0.3"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

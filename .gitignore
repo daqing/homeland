@@ -21,6 +21,7 @@ tmp/**/*
 /public/topics
 /public/topics/**/*
 /public/doc
+/public/tailwind.css
 /data/
 /shared/
 vendor/cache/

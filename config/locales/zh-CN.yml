@@ -115,6 +115,12 @@
         url: URL
         section: 位置
         position: 排序
+      tag:
+        node: 节点
+        name: 名称
+        key: 英文标识
+        position: 排序
+        intro: 简介
     errors:
       models:
         user:

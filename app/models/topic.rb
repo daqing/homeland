@@ -26,6 +26,9 @@ class Topic < ApplicationRecord
   belongs_to :last_reply, class_name: "Reply", required: false
   has_many :replies, dependent: :destroy
 
+  has_many :tag_topics
+  has_many :tags, through: :tag_topics
+
   validates :user_id, :title, :body, :node_id, presence: true
 
   validate :check_topic_ban_words, on: :create
