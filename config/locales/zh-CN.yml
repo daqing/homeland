@@ -121,6 +121,10 @@
         key: 英文标识
         position: 排序
         intro: 简介
+      board:
+        name: 名称
+        position: 排序
+        intro: 简介
     errors:
       models:
         user:

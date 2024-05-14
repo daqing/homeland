@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_03_104940) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_14_084431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_104940) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.index ["provider", "uid"], name: "index_authorizations_on_provider_and_uid"
+  end
+
+  create_table "board_topics", force: :cascade do |t|
+    t.bigint "board_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_board_topics_on_board_id"
+    t.index ["topic_id"], name: "index_board_topics_on_topic_id"
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "intro", default: ""
+    t.integer "position", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", id: :serial, force: :cascade do |t|
@@ -368,6 +385,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_03_104940) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "board_topics", "boards"
+  add_foreign_key "board_topics", "topics"
   add_foreign_key "tag_topics", "tags"
   add_foreign_key "tag_topics", "topics"
 end
