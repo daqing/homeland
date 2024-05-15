@@ -26,7 +26,6 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-twitter"
 gem "omniauth-wechat-oauth2"
 
-
 gem "jieba_rb"
 
 gem "http_accept_language"
@@ -93,6 +92,7 @@ gem "bootsnap"
 gem "puma_worker_killer"
 
 group :development do
+  gem "awesome_print"
   gem "byebug"
   gem "derailed_benchmarks"
   gem "dotenv-rails"
