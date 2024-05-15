@@ -22,6 +22,10 @@ class TopicsController < ApplicationController
     end
   end
 
+  def boards
+    @page_title = t("menu.topics")
+  end
+
   def tag
     @tag = Tag.find_by_key(params[:key])
     render_404 if @tag.blank?
