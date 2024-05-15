@@ -1,0 +1,23 @@
+<% if action_name != "index" %>
+  <% title_tag(@page_title || t('menu.topics')) %>
+<% else %>
+  <%= content_for :title do %>
+    <%= Setting.app_name %> - <%= Setting.slogan %>
+  <% end %>
+<% end %>
+<%= render "topics/node_info", node: @node %>
+<div class="flex flex-col gap-4 lg:flex-row">
+  <div class="grow lg:w-3/4">
+    <% Board.home.each do |board| %>
+      <div class="topics card mb-4">
+        <div class="card-header"><%= board.name %></div>
+        <div class="card-body item-list">
+          <%= render TopicComponent.with_collection(board.topics) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="w-full lg:w-1/4">
+    <%= render "topics/sidebar_for_topic_index" %>
+  </div>
+</div>

@@ -89,6 +89,7 @@ GEM
       rb_sys (>= 0.9.54)
     autocorrect-rb (2.9.1-x86_64-linux-musl)
       rb_sys (>= 0.9.54)
+    awesome_print (1.9.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     benchmark-ips (2.13.0)
@@ -541,6 +542,7 @@ PLATFORMS
 DEPENDENCIES
   action-store
   autocorrect-rb
+  awesome_print
   bootsnap
   byebug
   cancancan

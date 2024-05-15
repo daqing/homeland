@@ -5,6 +5,8 @@ zh-CN:
       site_configs: 设置
       users: 用户
       nodes: 节点
+      tags: 标签
+      boards: 版块
       nav_links: 导航链接
       wiki: Wiki
       topics: 话题
@@ -48,6 +50,9 @@ zh-CN:
     tags:
       new: 新建 Tag
       edit: 修改 Tag
+    boards:
+      new: 新建板块
+      edit: 修改板块
     topic_list: 话题列表
     check_photo: 瀏覽圖片
     reboot_successfully: 已经发起了重启命令，Homeland 在后台异步重启，你可以刷新页面，通过服务启动时间变化来确定重启是否完成。
@@ -65,6 +70,8 @@ zh-CN:
       update_successfully: 更新成功。
       topic_created_successfully: 话题创建成功。
       topic_updated_successfully: 话题更新成功。
+      board_created_successfully: 板块创建成功。
+      board_updated_successfully: 板块更新成功。
       user_updated_successfully: 用户更新成功。
       recent_10_replies_has_been_deleted_successfully: 成功删除最近 10 条回复，目前 %{name} 还有 %{count} 条。
       node_update_successfully: 节点更新成功。

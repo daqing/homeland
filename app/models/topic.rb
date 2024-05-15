@@ -29,6 +29,9 @@ class Topic < ApplicationRecord
   has_many :tag_topics
   has_many :tags, through: :tag_topics
 
+  has_many :board_topics
+  has_many :boards, through: :board_topics
+
   validates :user_id, :title, :body, :node_id, presence: true
 
   validate :check_topic_ban_words, on: :create

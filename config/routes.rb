@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :devices
   resources :teams
 
-  root to: "topics#index"
+  root to: "topics#boards"
   match "/uploads/:path(![large|lg|md|sm|xs])", to: "home#uploads", via: :get, constraints: {
     path: %r{[\w\d./-]+}i
   }
@@ -119,6 +119,7 @@ Rails.application.routes.draw do
     resources :nodes
     resources :nav_links
     resources :tags
+    resources :boards
     resources :users, constraints: { id: /[#{User::LOGIN_FORMAT}]*/o } do
       member do
         delete :clean

@@ -41,6 +41,12 @@ module Admin
 
     def update
       if @topic.update(params[:topic].permit!)
+        @topic.boards.delete_all
+
+        (params[:boards] || []).each do |board_id|
+          @topic.boards << Board.find(board_id)
+        end
+
         redirect_to(admin_topics_path, notice: t("views.admin.topic_updated_successfully"))
       else
         render action: "edit"

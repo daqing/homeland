@@ -1,0 +1,31 @@
+<% content_for :sitemap do %>
+  <span class="current"><%= t("admin.menu.boards")%></span>
+<% end %>
+<div class="toolbar">
+  <%= link_to t("admin.boards.new"), new_admin_board_path, class: "btn btn-secondary" %>
+</div>
+<table class="table table-bordered table-striped table-condensed">
+  <tr class="head">
+    <th class="first">#</th>
+    <th>Name</th>
+    <th>Section</th>
+    <th>Intro</th>
+    <th>Position</th>
+    <th></th>
+  </tr>
+  <% @boards.each do |board| %>
+    <tr>
+      <td class="first"><%= board.id %></td>
+      <td><%= board.name %></td>
+      <td><%= board.section %></td>
+      <td><%= board.intro %></td>
+      <td><%= board.position %></td>
+      <td class="actions">
+        <div class="btn-group">
+          <%= link_to icon_tag("edit"), edit_admin_board_path(board), class: "btn" %>
+          <%= link_to icon_tag("trash"), admin_board_path(board), 'data-confirm' => 'Are you sure?' , method: :delete, class: "btn" %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
