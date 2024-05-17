@@ -12,6 +12,10 @@
           <%= icon_tag("clock") %> <%= user.created_at&.to_date %>
         </div>
       </div>
+      <div>
+        <div>Current: <%= user.current_sign_in_ip %></div>
+        <div>Last: <%= user.last_sign_in_ip %></div>
+      </div>
     </div>
     <% if user.bio.present? %>
       <div class="mt-2 description" title="Bio">
