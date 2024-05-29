@@ -77,7 +77,6 @@
     App.locale = "<%= I18n.locale %>";
     <% if current_user %>
       App.current_user_id = <%= current_user.id %>;
-      amplitude.getInstance().setUserId("<%= current_user.id %>");
     <% end %>
     <% if turbolinks_app? %>
       App.turbolinks = true;
@@ -86,6 +85,11 @@
       App.cable = null;
     <% end %>
   </script>
+  <% if current_user %>
+    <script type="text/javascript">
+      amplitude.getInstance().setUserId("<%= current_user.id %>");
+    </script>
+  <% end %>
   <%= yield :scripts %>
   <div class="zoom-overlay"></div>
 </body>
