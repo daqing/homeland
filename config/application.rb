@@ -6,8 +6,6 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Rails.load
-
 module Homeland
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -47,7 +45,7 @@ module Homeland
     end
 
     redis_config = Application.config_for(:redis)
-    config.cache_store = [:redis_cache_store, {namespace: "cache", url: redis_config["url"], expires_in: 4.weeks}]
+    config.cache_store = [:redis_cache_store, { namespace: "cache", url: redis_config["url"], expires_in: 4.weeks }]
 
     config.active_job.queue_adapter = :sidekiq
     config.middleware.use Rack::Attack
